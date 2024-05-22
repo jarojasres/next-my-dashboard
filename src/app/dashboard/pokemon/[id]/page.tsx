@@ -8,6 +8,12 @@ interface Props {
   params: { id: string };
 }
 
+export async function generateStaticParams() {
+  const parms = Array.from({ length: 151 }).map((_, index) => `${index + 1}`);
+  const ids = parms.map(id => ({id}));
+  console.log(ids);
+  return ids;
+}
 
 export async function generateMetadata({ params }:Props): Promise<Metadata> {
 
